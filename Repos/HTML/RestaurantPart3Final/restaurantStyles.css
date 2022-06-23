@@ -1,0 +1,20 @@
+
+/* added embeded font for restaurant name */
+@font-face {
+  font-family: "MyFirstFont";
+  src:url("sansation_light.woff");
+}
+
+body {
+    background-color: white;
+  }
+
+header, footer {
+  background-color: #e4c3ad;
+  color: #fef9ff;
+  text-align: center;
+  }
+h1{
+  font-family: "MyFirstFont";
+
+}

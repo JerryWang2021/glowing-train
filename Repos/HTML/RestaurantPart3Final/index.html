@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+
+    <link href="restaurantStyles.css" rel="stylesheet" type="text/css">
+    <!--home icon font-->
+    <script src="https://kit.fontawesome.com/bb1861f526.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CDN copied from https://getbootstrap.com/docs/4.1/getting-started/introduction/ -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+    <style media="screen">
+
+    nav {
+        border-top: thin #5b7d87 solid;
+        border-bottom: thin #5b7d87 solid;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    nav .btn {
+        background-color: #e4c3ad;
+        color: #fef9ff;
+    }
+    nav .btn:visited {
+        color: red;
+    }
+    nav .btn:hover {
+        font-weight: bold;
+    }
+    h2 {
+      font-family: sans-serif;
+    }
+    .row {background-color:lightblue; margin-left: 3px; opacity: 0.9;margin-bottom: 4px;
+      }
+    .carousel {
+        height: 8rem;
+        background: #777;
+        color: white;
+      }
+      .page-header {
+        background-color: #777;
+        text-align: center;
+        color: red;
+        height: 6rem;
+      }
+      .alert {
+        padding: 20px;
+        background-color: #f44336;
+        color: white;
+      }
+
+      .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .closebtn:hover {
+        color: black;
+      }
+      .fas {
+        color: #e4c3ad;
+        font-size : 60px;
+      }
+      .fas:hover {
+        color: blue;
+        font-size : 60px;
+      }
+
+    </style>
+
+  </head>
+  <body>
+    <!--Alert for Javascript disabled users-->
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      <strong>Please enable Javascript for best view!</strong>
+    </div>
+
+    <div class="container">
+      <div style="background:#e4c3ad" class="jumbotron">
+        <header>
+          <h1>Golden Time</h1>
+        </header>
+      </div>
+      <div class="page-header"> <!--page header call out big news-->
+        <h1>Golden Time is opening downtwon !</h1>
+      </div>
+
+    <nav>
+      <!--house icon -->
+      <a href="index.html" ><i class="fas fa-house-user"></i></a>
+      <a class="btn badge-pill" href="Menu.html">Menu</a>
+      <a class="btn badge-pill" href="Contact-us.html">Contact-us</a>
+    </nav>
+
+    <div class="row">
+      <div class="col-lg-3 col-md">
+        <!--An inline CSS position style -->
+        <img src="images/image01.jpg" alt="restaurantpicture" class="img-fluid"
+        style="position: relative; left: 3px; top: 2px; border: 1px solid #73ad21">
+      </div>
+
+      <div class="col-lg-9 col-md">
+        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h3>
+      </div>
+
+    </div>
+      <!-- Indicators-->
+      <div id="myCarousel" class="carousel slide"
+      data-ride="myCarousel">
+        <ol class="carousel-indicators">
+          <li data-target="myCarousel"
+          data-slide-to="0" class="active"></li>
+          <li data-target="myCarousel"
+          data-slide-to="1"></li>
+          <li data-target="myCarousel"
+          data-slide-to="2"></li>
+        </ol>
+
+        <!-- The slideshow!-->
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+            <h1>What's New!</h1>
+            <p>We're opening a new location!</p>
+        </div>
+
+        <div class="carousel-item">
+            <h1>What's New!</h1>
+            <p>We're rolling out our seasonal menu, with special options for this season.</p>
+        </div>
+
+        <div class="carousel-item">
+            <h1>What's New!</h1>
+            <p>The Drink of the Month is SG Special Brew.</p>
+        </div>
+      </div>
+        <!-- Left and right controls-->
+        <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>
+
+   <footer>
+      <h6>999 Royal Ave, BC, V3M 3K3</h6>
+      <h6>604-389-8888</h6>
+    </footer>
+    </div>
+    <!-- CDN links copied from https://getbootstrap.com/docs/4.1/getting-started/introduction/ -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  </body>
+</html>

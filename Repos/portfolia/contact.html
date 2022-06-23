@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+    Name: Your Name
+    Date Created: Today's date
+    Most recent revision:
+-->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Contact Me</title>
+</head>
+
+<body>
+  <header>
+    <h1>Contact Me</h1>
+  </header>
+
+  <nav>
+    <hr>
+    <a href="index.html">Home</a>
+    <hr>
+  </nav>
+  <h2>Information Request</h2>
+  <form action="submit.html" method="post">
+    <label for="firstname">First Name:</label><br>
+    <input type="text" name="firstname" value=""><br>
+    <label for="lastname">Last Name:</label><br>
+    <input type="text" name="lname" value=""><br>
+    <label for="phoneNumber">Phone Number</label><br>
+    <input type="text" name="phoneNumber" value=""><br>
+
+    <label for="contact">Best time to call:</label><br>
+    <select class="contact" name="contact">
+      <option value="defaut" selected>--Select One--</option>
+      <option value="morning">Morning (8AM to 12PM Eastern)</option>
+      <option value="afternoon">Afternoon (12PM to 5PM Eastern)</option>
+      <option value="evening">Evening (5PM to 8PM Eastern)</option>
+    </select>
+
+    <fieldset>
+      <legend>I am interested in (check all that apply)</legend><br>
+      <input type="checkbox" name="interest" value="frontEnd">
+      <label for="frontEnd">Front End Web Development</label><br>
+      <input type="checkbox" name="interest" value="backEnd">
+      <label for="backEnd">Back End Web Development</label><br>
+      <input type="checkbox" name="interest" value="dataBase">
+      <label for="dataBase">DataBase Design</label><br>
+    </fieldset>
+    <fieldset>
+      <legend>I have filled in the client questionaire form:</legend>
+      <input type="radio" name="questionaire" value="YES">
+      <label for="">Yes</label><br>
+      <input type="radio" name="questionaire" value="NO">
+      <label for="">No</label><br>
+    </fieldset>
+    <label for="info">Additional Information</label><br>
+    <textarea name="submit" rows="8" cols="80"></textarea><br>
+
+    <input type="submit" name="submit" value="Submit">
+  </form>
+
+  <footer>
+
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Links and Tables</title>
+    <style media="screen">
+      table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding-top: 5px;
+  padding-right: 0px;
+  padding-bottom: 5px;
+  padding-left: 30px;
+  }
+      Table {
+        width: 100%;
+      }
+      th{
+        hight: 25px;
+      }
+      tfoot td {
+        text-align: center;
+      }
+      tbody tr:nth-child(even) {
+        background-color: lemonchiffon;
+      }
+
+      tbody tr:nth-child(odd) {
+        background-color: lawngreen;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <caption>Table Caption</caption>
+      <thead>
+          <tr>
+            <th>Heading 1</th>
+            <th>Heading 2</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td>1</td>
+            <td>Lorem</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>ipsum</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>dolor</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Lorem</td>
+          </tr>
+      </tbody>
+      <tfoot>
+          <tr>
+            <td colspan="2">Table Footer Text</td>
+          </tr>
+      </tfoot>
+  </table>
+  </body>
+</html>

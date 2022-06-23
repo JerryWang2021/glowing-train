@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Dvd Library</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <!-- Additional CSS files here -->
+
+</head>
+
+<body>
+  <div class="container-lg mt-3">
+    <h1>Dvd Library Rest Api</h1>
+    <hr>
+    <ul class="list-group" id="errorMessages"></ul>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-md-3">
+          <button type="button" class="btn btn-primary" onclick="showAddForm()">Create Dvd</button>
+        </div>
+        <form class="row" role="search">
+          <div class="col-md-3">
+            <button class="btn btn-outline-success" type="button" id="search-button">Search</button>
+          </div>
+          <div class="col-md-3">
+            <select class="form-select" id="categarySelect">
+              <option selected value="">Choose...</option>
+              <option value="title">Title</option>
+              <option value="release-year">Release Year</option>
+              <option value="director">Director</option>
+              <option value="rating">Rating</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <input class="form-control me-2" type="search" id="search-input" placeholder="Search..." aria-label="Search" required>
+          </div>
+        </form>
+      </div>
+
+      <!-- container for table -->
+      <div id="dvdTableDiv">
+        <table id="dvdTable" class="table table-hover">
+          <thead>
+            <tr>
+              <th width="30%">Title</th>
+              <th width="20%">Release Year</th>
+              <th width="15%">Director</th>
+              <th width="15%">Rating</th>
+              <th width="10%"></th>
+              <th width="10%"></th>
+            </tr>
+          </thead>
+          <!-- we will add data rows dynamiclly to the tbody -->
+          <tbody id="contentRows"></tbody>
+        </table>
+      </div>
+      <!-- container for add Dvd -->
+      <div class="col-md-6">
+        <div id="addFormDiv" style="display:none">
+          <h2>Add New Dvd</h2>
+          <form class="form-horizontal" role="form" id="addForm">
+            <div class="form-group row">
+              <label for="addtitle" class="col-md-4 control-label">
+                Title:
+              </label>
+              <div class="col-md-8">
+                <input type="text" class="form-control" id="addtitle" placeholder="Enter Title" required>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="addreleaseyear" class="col-md-4 control-label">
+                Release Year:
+              </label>
+              <div class="col-md-8">
+                <input type="text" class="form-control" id="addreleaseyear" placeholder="Enter Release Year" required>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="adddirector" class="col-md-4 control-label">
+                Director:
+              </label>
+              <div class="col-md-8">
+                <input type="text" class="form-control" id="adddirector" placeholder="Enter Director" required>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="addrating" class="col-md-4 control-label">
+                Rating:
+              </label>
+              <div class="col-md-8">
+                <select class="form-control" id="addrating">
+                  <option selected required>PG</option>
+                  <option value="PG-13">PG-13</option>
+                  <option value="G">G</option>
+                  <option value="R">R</option>
+                  <option value="NC-17">NC-17</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="addnotes" class="col-md-4 control-label">
+                Notes:
+              </label>
+              <div class="col-md-8">
+                <textarea name="Notes" rows="2" cols="30" id="addnotes" class="form-control"></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="offset-md-3 col-md-3">
+                <button type="button" id="createCancelCButton" class="btn btn-danger" onclick="hideAddForm()">
+                  Cancel
+                </button>
+              </div>
+              <div class="col-md-6">
+                <button type="button" id="addButton" class="btn btn-primary">
+                  <!-- <button type="button" id="addButton" class="btn btn-primary" onclick="addDvd()"> -->
+                  Create Dvd
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- container for edit Dvd -->
+      <div class="col-md-6">
+        <div id="editFormDiv" style="display:none">
+          <h2>Edit the Dvd</h2>
+          <form class="form-horizontal" role="form" id="editForm">
+            <div class="form-group row">
+              <label for="edit-title" class="col-md-4 control-label">
+                Title:
+              </label>
+              <div class="col-md-8">
+                <input type="text" class="form-control" id="edit-title">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="edit-release-year" class="col-md-4 control-label">
+                Release Year:
+              </label>
+              <div class="col-md-8">
+                <input type="text" class="form-control" id="edit-release-year">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="edit-director" class="col-md-4 control-label">
+                Director:
+              </label>
+              <div class="col-md-8">
+                <input type="text" class="form-control" id="edit-director">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="edit-rating" class="col-md-4 control-label">
+                Rating:
+              </label>
+              <div class="col-md-8">
+                <select name="rating" class="form-control" id="edit-rating">
+                  <option selected>PG</option>
+                  <option value="PG-13">PG-13</option>
+                  <option value="G">G</option>
+                  <option value="R">R</option>
+                  <option value="NC-17">NC-17</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="edit-notes" class="col-md-4 control-label">
+                Notes:
+              </label>
+              <div class="col-md-8">
+                <textarea name="Note" rows="2" cols="30" id="edit-notes" placeholder="Notes...">
+                                            </textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="offset-md-3 col-md-3">
+                <input type="hidden" id="edit-id">
+                <button type="button" id="editCancelCButton" class="btn btn-danger" onclick="hideEditForm()">
+                  Cancel
+                </button>
+              </div>
+              <div class="col-md-6">
+                <button type="button" id="updateButton" class="btn btn-primary" onclick="hideEditForm()">
+                  Save Changes
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div id="dvdContentDiv" style="display:none">
+          <h2>Dvd Content</h2>
+          <form class="form-horizontal" role="form" id="dvdContent">
+            <div class="form-group row">
+              <label for="title" class="col-md-4 control-label">
+                Title:
+              </label>
+              <div class="col-md-8">
+                <input type="text" class="form-control" id="title" readonly>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="releaseYear" class="col-md-4 control-label">
+                Release Year:
+              </label>
+              <div class="col-md-8">
+                <input type="text" class="form-control" id="releaseYear" readonly>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="director" class="col-md-4 control-label">
+                Director:
+              </label>
+              <div class="col-md-8">
+                <input type="text" class="form-control" id="director" readonly>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="rating" class="col-md-4 control-label">
+                Rating:
+              </label>
+              <div class="col-md-8">
+                <select name="rating" class="form-control" id="rating" readonly>
+                  <option selected>PG</option>
+                  <option value="PG-13">PG-13</option>
+                  <option value="G">G</option>
+                  <option value="R">R</option>
+                  <option value="NC-17">NC-17</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="notes" class="col-md-4 control-label">
+                Notes:
+              </label>
+              <div class="col-md-8">
+                <textarea name="Note" rows="2" cols="30" id="notes" readonly></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+                <input type="hidden" id="id">
+                <button type="button" id="cancelButton" class="btn btn-danger" onclick="hideDvdContentForm()">
+                  Back
+                </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <!-- use the the full jQuery build, NOT the slim build-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+  <!-- custom js files -->
+  <script src="js/home.js"></script>
+
+</body>
+
+</html>

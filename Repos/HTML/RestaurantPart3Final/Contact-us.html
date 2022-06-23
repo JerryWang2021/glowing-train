@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Contact Us</title>
+    <link href="restaurantStyles.css" rel="stylesheet" type="text/css">
+    <!-- Bootstrap CDN copied from https://getbootstrap.com/docs/4.1/getting-started/introduction/ -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style media="">
+
+    nav {
+        border-top: thin #5b7d87 solid;
+        border-bottom: thin #5b7d87 solid;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    nav .btn {
+        background-color: #e4c3ad;
+        color: #fef9ff;
+    }
+    nav .btn:visited {
+        color: red;
+
+    nav .btn:hover {
+        font-weight: bold;
+    }
+    h1 {
+      text-align: center;
+    }
+    h2 {
+      font-family: sans-serif;
+    }
+    label {
+      font: bold;
+    }
+    div[lang] {
+      bold;
+    }
+    </style>
+
+    <script>
+    function validateForm() {
+      let x = document.forms["myForm"]["fname"].value;
+      if (x == "") {
+        alert("Name must be filled out");
+        return false;
+      }
+      let y = document.forms["myForm"]["femail"].value;
+      if (y == "") {
+        alert("Email must be filled out");
+        return false;
+      }
+      let z = document.forms["myForm"]["fphone"].value;
+      if (z == "") {
+        alert("Phone number must be filled out");
+        return false;
+      }
+    }
+</script>
+    </head>
+  <body>
+    <div class="container">
+
+      <header>
+        <h1>Golden Time</h1>
+      </header>
+      <nav>
+        <a class="btn badge-pill" href="index.html">Home</a>
+        <a class="btn badge-pill" href="Menu.html">Menu</a>
+        <a class="btn badge-pill" href="Contact-us.html">Contact-us</a>
+      </nav>
+
+      <!--form validating,Name,email and phone validated through JS-->
+      <form name="myForm" action="/action_page.php" onsubmit="return validateForm()"method="post">
+        <div class="form-group">
+          <label for="Name">Name:</label>
+          <input type="text" class="form-control" id="Name" placeholder="Enter name"  name="fname"><br>
+        </div>
+
+        <div class="form-group">
+          <label for="Email">Email:</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter email" name="femail"><br>
+        </div>
+
+        <div class="form-group">
+          <label for="Phone">Phone</label>
+          <input type="text" class="form-control" id="phone" placeholder="Enter phone number" name="fphone"><br>
+        </div>
+
+
+        <label for="Inquiry">Reason for Inquiry</label>
+        <select class="Inquriy" name="Inquiry">
+          <option value="defaut" selected>Catering</option>
+          <option value="Private Party">Private Party</option>
+          <option value="Feedback">Feedback</option>
+          <option value="Other">Other</option>
+        </select><br>
+
+        <label for="information">Aditiontion Information</label>
+        <textarea name="Information" rows="" cols=""></textarea><br>
+
+        <label for="Inquiry">Have you been to the restaurant?</label>
+        <input type="radio" id="choice1" name="questionaire" value="yes">
+        <label for="choice1">yes</label>
+        <input type="radio" id="choice2" name="questionaire" value="no">
+        <label for="choice2">no</label><br>
+
+        <label for="Inquiry">Best day to contact you:</label>
+        <input type="checkbox" name="weekday" value="Monday">
+        <label for="Monday">M</label>
+        <input type="checkbox" name="weekday" value="Tuesday">
+        <label for="Monday">T</label>
+        <input type="checkbox" name="weekday" value="Wedensday">
+        <label for="Monday">W</label>
+        <input type="checkbox" name="weekday" value="Thursday">
+        <label for="Monday">Th</label>
+        <input type="checkbox" name="weekday" value="Friday">
+        <label for="Monday">F</label><br>
+
+        <input type="submit" name="Send Request" value="Send Request">
+
+      </form>
+      <hr>
+      <footer>
+        <h6>999 Royal Ave, BC, V3M 3K3</h6>
+        <h6>604-389-8888</h6>
+      </footer>
+    </div>
+    <!-- CDN links copied from https://getbootstrap.com/docs/4.1/getting-started/introduction/ -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  </body>
+</html>
